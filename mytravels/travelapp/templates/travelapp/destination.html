@@ -1,0 +1,103 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <title>PilotJ Traveler</title>
+        
+        <link rel="stylesheet" href="{% static 'css/sass.css' %}">
+        
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <style>
+            .sectionFullWidthImg {
+                {% if report.picture %}
+                    background: url(/media/{{ report.picture }}) no-repeat, #FFF;
+                {% else %}
+                    background: url(/media/default.jpg) no-repeat, #FFF;
+                {% endif %}/*Using a background image on top of a background colour in CSS*/
+                background-size: cover;
+                margin:0 auto;
+                margin-top: -20px;
+                min-height: 220px; 
+            }
+        </style>
+        
+    </head>
+    
+    <body style="padding-top: ">
+        {% include "_indexNavbar.html" %}
+        
+        <div class="sectionFullWidthImg">
+            <div class="container">
+                <div class="row">
+                    <!--placeHolder-->
+                </div><!--row-->
+            </div><!--container-->
+        </div><!--fullWidthImage Section-->
+        
+        <div class="sectionTitle">
+            <div class="container">
+                <div class="row">                    
+                    
+                    <div class="col-sm-offset-2 col-sm-8" style="text-align: center;">
+                       <img src="/media/{{ report.picture }}" class="img-rounded" alt="Logo" height="100" width="150" style="margin-top: -50px; z-index: 100; border: solid 2px #d4d8dd; background-color: #FFF;">
+                                        
+                        <h1>{{ report.destination.city }}, {{ report.destination.country }}</h1>
+                    
+                        <p>{{ report.summary }}</p>
+                        
+                        <br/>
+                        
+                        <h3>Overall Impression</h3>
+                        {% if report.rating == 1 %} 
+                            <img class="img-responsive center-block" src="{% static 'img/glyphimg1bars.png' %}"  height="40" width="40" alt="logo1"> 
+                        {% endif %} 
+                        {% if report.rating == 2 %} 
+                            <img class="img-responsive center-block" src="{% static 'img/glyphimg2bars.png' %}"  height="40" width="40" alt="logo1"> 
+                        {% endif %} 
+                        {% if report.rating == 3 %} 
+                            <img class="img-responsive center-block" src="{% static 'img/glyphimg3bars.png' %}"  height="40" width="40" alt="logo1"> 
+                        {% endif %} 
+                        {% if report.rating == 4 %} 
+                            <img class="img-responsive center-block" src="{% static 'img/glyphimg4bars.png' %}"  height="40" width="40" alt="logo1"> 
+                        {% endif %} 
+                        {% if report.rating == 5 %} 
+                            <img class="img-responsive center-block" src="{% static 'img/glyphimg5bars.png' %}"  height="40" width="40" alt="logo1"> 
+                        {% endif %} 
+                    
+                    </div>
+                </div><!--row-->
+            </div><!--container-->
+        </div><!--fullWidthImage Section-->
+        
+        <div class="sectionOverview">
+            <div class="container">
+                <div class="row">
+                
+                    <div class="col-sm-offset-1 col-sm-10" style="text-align: center;">
+                        
+                        <h3>Overview</h3>
+                      
+                        <p>{{ report.blog | linebreaks }}</p>
+                        
+                        <br/>
+                        
+                        <iframe
+                          width="100%"
+                          height="500"                          
+                          frameborder="0" style="border:0; margin-bottom: 20px;"
+                          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDcaM-D0l6j5n5p02tC3Y37r-4zcNoEQb4&q={{report.destination.city}}" allowfullscreen>
+                        </iframe>      
+                        
+                    </div>
+                </div><!--row-->
+            </div><!--container-->
+        </div><!--fullWidthImage Section-->
+        
+    </body>  
+</html>

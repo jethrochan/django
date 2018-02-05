@@ -1,0 +1,186 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <title>PilotJ Traveler</title>
+        
+        <link rel="stylesheet" href="{% static 'css/sass.css' %}">
+        
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </head>
+    
+    <body>
+    
+        {% include "_indexNavbar.html" %}
+
+        <div class="sectionFullWidthImage">
+          <div class="container">
+            <div class="row">
+            
+              <div class="col-sm-6 text-center">
+                
+                <h1 style="color: #FFF;">
+                  <strong>
+                    Europe.             
+                  </strong>
+                </h1>
+                
+                <h2 style="color: #FFF;">
+                  <strong>
+                    1 Backpack, 16 Countries              
+                  </strong>
+                </h2>
+                            
+                <a href="#explore" class="btn btn-default btn-lg" style="width: 250px;">
+                    Explore
+                  </a>
+                
+              </div><!--end intro-box-->
+              
+              <div class="col-sm-6 text-center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/O5jH3QgqjFM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+
+            </div><!--row-->
+          </div><!--container-->
+        </div><!--section1, full width image-->
+
+        <div class="section3">
+          <div class="container">
+              <div class="row">                   
+                <div class="col-sm-12">
+                                            
+                  <div class="text-center" style="margin-bottom: 50px;">
+                    <img src="{% static 'img/jethrochan.jpg' %}" height="140" width="140" alt="error" class="img-circle"/>
+                  
+                    <p style="font-size: 18px; line-height: 28px; margin-top: 10px; margin-bottom: 30px;"><em>
+                        Traveling can be done light. This frees the mind from extra baggage, keeps you on your toes on what really is important and maximizes your perspective on the destination. It is the single thing that allowed me to immerse into the local cultures across 16 countries. Leave the bags at home.
+                    </em></p>                               
+                 
+                    <h4>
+                        <strong>
+                        PilotJ | Traveler
+                        </strong>
+                    </h4>
+
+                  </div><!--centerblock-->                  
+                </div><!--/col-->
+              </div><!--/row-->
+            </div><!--container-->
+        </div><!--section-->
+        
+        <div class="section2" id="explore">
+          <div class="container">
+            <div class="row">                   
+                <div class="col-sm-12">
+                                            
+                  <div class="text-center" style="margin-bottom: 50px;">
+                  
+                    <h1>
+                        <strong>
+                        Destinations
+                        </strong>
+                    </h1>
+                   
+                  </div><!--centerblock-->                  
+                </div><!--/col-->
+             </div><!--/row-->
+               
+             <div class="row" style="padding-left: 80px;">  
+                
+                {% for report in Reports %}
+                
+                    <div class="col-sm-3half" style="background-color: #FFF; padding: 15px; margin-right: 20px; margin-top: 20px; height: 400px; overflow: hidden;"> 
+                    
+                        <div class="row">                   
+                            <div class="col-sm-12" style="height: 170px;">
+                                <div class="limit">
+                                    <img src="media/{{ report.picture }}" alt="error"/>
+                                </div><!--limit-->
+                            </div><!--/col-->                
+                        </div><!--/row-->
+                            
+                        <div class="row">                   
+                            <div class="col-sm-12"> 
+                                <h4>
+                                    <strong>
+                                        {{ report.destination.city }}, {{ report.destination.country }}
+                                    </strong>
+                                </h4>
+                                
+                                <p style="height: 120px; overflow: hidden;">
+                                    {{ report.summary }}
+                                </p>
+                                
+                                <a href="/destination/{{ report.pk }}" class="btn btn-primary btn-md" style="width: 100%;">
+                                    See More
+                                </a>
+                            </div><!--/col-->                
+                        </div><!--/row-->
+                                       
+                    </div><!--/col--> 
+                {% endfor %}
+                
+              </div><!--/row-->
+              
+            </div><!--container-->
+        </div><!--section-->
+        
+	
+		<div class="sectionAboutMe" id="aboutMe">
+			<div class="container">
+				<div class="row row_margin">
+
+					<div class="col-sm-5 col-sm-offset-1">
+						<h2 class="aboutMe_Title_Custom">
+							About Jethro
+						</h2>
+						<p>
+							<!--I am seeking a full-time Software Engineering position.<br/>-->
+							I am a full-stack and backend engineer at Edutainme<br/>
+							<br/>
+							"EdutainMe will help jobseekers consolidate their learning, the way Toastmasters improves their speaking, we help improve how jobseekers gain new skills to change industries."</br>
+
+                            <br/>
+                            I identified key areas of the backend I am interested in and focused on developing code in those verticals.
+                                                                                    
+                            <h4>Education</h4>
+                            I am an alumnus of UC Davis, with a degree in Computer Science and Managerial Economics.</br>
+						</p>
+						<br/>
+						<p>
+							<strong>Email me at: jethro@jethrochan.com</strong>
+						</p>
+                        <p>
+							<strong>LinkedIn: <a href="https://www.linkedin.com/in/jethrochan">https://www.linkedin.com/in/jethrochan</a></strong>
+						</p>                       
+                        
+						<br/>
+						<br/>
+						<br/>
+						<p>
+							Website Designed and Created by Jethro Chan Copyright 2018
+						</p>
+                        <p>
+                            Powered By Django
+                        </p>
+					</div>
+					<!--col-->
+					<div class="col-sm-5">
+						<img src="{% static 'img/jethrochan2.jpg' %}" height="310" width="310" class="img-circle" style="margin-top: 0px; margin-bottom:30px; margin-left: 45px">
+					</div>
+				</div>
+				<!--row--->
+			</div>
+			<!--container-->
+		</div>
+		<!--full width box-->
+
+    </body>
+</html>

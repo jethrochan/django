@@ -1,0 +1,100 @@
+/* SCSS Document */
+
+body {
+  background-color: #FFF; 
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nav-Custom-clear {
+  background:rgba(180,190,180,0.1)!important; }
+  
+.sectionFullWidthImage {
+    background-image:url(../img/prague.jpg);
+    background-position:centertop;
+    background-repeat:no-repeat;
+    background-size:cover;
+    margin:0 auto;
+    padding:130px 0px 100px 0px;
+}
+
+.section2 {
+    background-color: #EEE;
+    width:100%;
+    min-height: 220px;
+    margin:0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color:#404040; }
+    
+.section3 {
+    background-color: #fd5c63;
+    width:100%;
+    min-height: 220px;
+    margin:0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #FFF; }
+
+.sectionOverview {
+      padding-top: 40px;
+    }
+    
+.sectionTitle {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    border-bottom: solid 2px #D1D1D1;
+}
+
+.sectionAboutMe {
+    background-color:#FFF;
+    width:100%;
+    height:auto;
+    min-height:360px;
+    margin:0 auto;
+    padding: 50px 0px 20px 0px;
+}
+ 
+ 
+/*image box for destinations*/
+.limit{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+ }
+.limit img{
+   width: 100%;
+   height: 100%;
+ }
+ 
+.col-sm-half, .col-sm-2half, .col-sm-3half, .col-sm-8half {
+    position: relative;
+    min-height: 1px;
+    /*padding removed for default to not mess with LH and RH outer columns using these styles*/
+    /*padding-right: 15px;
+    padding-left: 15px;*/
+    }
+
+@media (min-width: 768px) {
+    .col-sm-half, .col-sm-2half, .col-sm-3half, .col-sm-8half {
+        float: left;
+    }
+   
+    .col-sm-half {
+        width: 4.166666666%;
+    }   
+    .col-sm-2half {
+        width: 21.7%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }    
+    .col-sm-3half {
+        width: 29.16666667%;
+    }
+    .col-sm-8half {
+        width: 70.83333333%;
+    }
+}
